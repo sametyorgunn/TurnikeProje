@@ -1,4 +1,4 @@
-﻿
+﻿@model TurnikeProje.EntityLayer.Dtos.UserInfoDto
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -9,4 +9,18 @@
     <input name="Password" type="text" class="form-control" />
     <button type="submit">Giriş</button>
 </form>
+
+
+<br /><br />
+@{
+    if (Model != null)
+    {
+        <a href="/Movements/Exit/@Model.Id">Turnike Çıkış</a>
+    }
+    else
+    {
+        
+    }
+}
+
 

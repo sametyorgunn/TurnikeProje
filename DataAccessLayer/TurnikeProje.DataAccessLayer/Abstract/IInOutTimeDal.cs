@@ -13,6 +13,8 @@ namespace TurnikeProje.DataAccessLayer.Abstract
     {
         List<InOutTime> GetUserInOutTime(int userId);
         void CreateMovements(CreateMovementsDto dto);
+        void TAddExitTime(int id);
+
 
     }
 }

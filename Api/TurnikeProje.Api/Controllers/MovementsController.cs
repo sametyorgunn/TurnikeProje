@@ -21,6 +21,12 @@ namespace TurnikeProje.Api.Controllers
         public IActionResult Enter(CreateMovementsDto dto)
         {
             _inOutTimeService.TCreateMovements(dto);
+            return Ok(dto);
+        }
+        [HttpGet("Exitadd/{id}")]
+        public IActionResult Exit(int id)
+        {
+            _inOutTimeService.TAddExitTime(id);
             return Ok();
         }
     }

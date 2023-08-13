@@ -59,5 +59,13 @@ namespace TurnikeProje.BussinesLayer.Concrete
         {
             _InOutdal.CreateMovements(dto);
         }
+
+        public void TAddExitTime(int id)
+        {
+            _InOutdal.TAddExitTime(id);
+        }
+
+      
+
     }
 }

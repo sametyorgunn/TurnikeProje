@@ -11,7 +11,7 @@ namespace TurnikeProje.EntityLayer.Entities
         public int Id { get; set; }
         public DateTime? InTime { get; set; }
         public DateTime? OutTime { get; set; }
-        public int? UserId { get; set; }
-        public User? User { get; set; }
+        public int UserId { get; set; }
+        public User User { get; set; }
     }
 }

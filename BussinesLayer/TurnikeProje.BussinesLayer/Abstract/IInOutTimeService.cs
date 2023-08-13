@@ -13,6 +13,7 @@ namespace TurnikeProje.BussinesLayer.Abstract
     {
         List<InOutTime> TGetUserInOutTime(int userId);
         void TCreateMovements(CreateMovementsDto dto);
+        void TAddExitTime(int id);
 
     }
 }

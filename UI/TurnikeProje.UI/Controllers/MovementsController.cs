@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Humanizer;
+using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Net.Http;
 using TurnikeProje.EntityLayer.Dtos;
@@ -15,8 +16,26 @@ namespace TurnikeProje.UI.Controllers
             _httpClientFactory = httpClientFactory;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
+            if(HttpContext.Session.GetInt32("userid")!=null)
+            {
+                int? userid = HttpContext.Session.GetInt32("userid");
+                var client = _httpClientFactory.CreateClient();
+                string url = $"https://localhost:7122/api/Movements/{1}";
+                HttpResponseMessage response = await client.GetAsync(url);
+                if(response.IsSuccessStatusCode)
+                {
+                    var jsondata = await response.Content.ReadAsStringAsync();
+                    var data = JsonConvert.DeserializeObject<UserInfoDto>(jsondata);
+                    return View(data);
+                }
+
+            }
+            else
+            {
+                return View();
+            }
             return View();
         }
         [HttpPost]
@@ -35,6 +54,23 @@ namespace TurnikeProje.UI.Controllers
             {
                 return RedirectToAction("Index");
             }
+        }
+
+
+        public async Task<IActionResult> Exit(int id) 
+        {
+            var client = _httpClientFactory.CreateClient();
+            string url = $"https://localhost:7122/api/Movements/Exitadd/{1}";
+            HttpResponseMessage response = await client.GetAsync(url);
+            if (response.IsSuccessStatusCode)
+            {
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }
+
         }
     }
 }

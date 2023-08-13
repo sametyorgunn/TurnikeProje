@@ -19,6 +19,10 @@
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="7.0.4" />
   </ItemGroup>
 
+	<ItemGroup>
+		<FrameworkReference Include="Microsoft.AspNetCore.App"></FrameworkReference>
+	</ItemGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\..\EntityLayer\TurnikeProje.EntityLayer\TurnikeProje.EntityLayer.csproj" />
   </ItemGroup>

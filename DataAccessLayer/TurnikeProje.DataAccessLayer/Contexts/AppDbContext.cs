@@ -10,6 +10,10 @@ namespace TurnikeProje.DataAccessLayer.Contexts
 {
     public class AppDbContext:DbContext
     {
+        public AppDbContext()
+        {
+           ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
+        }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseNpgsql("User ID=postgres;Password=yorgun.1292;Host=localhost;Port=5432;Database=TurnikeDb;");

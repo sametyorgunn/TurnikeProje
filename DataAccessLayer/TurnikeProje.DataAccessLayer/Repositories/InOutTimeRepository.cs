@@ -1,6 +1,9 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using TurnikeProje.DataAccessLayer.Abstract;
@@ -13,7 +16,7 @@ namespace TurnikeProje.DataAccessLayer.Repositories
 {
     public class InOutTimeRepository : EfGenericRepository<InOutTime>, IInOutTimeDal
     {
-      
+
         public void CreateMovements(CreateMovementsDto dto)
         {
             using(var c = new AppDbContext())
@@ -40,6 +43,30 @@ namespace TurnikeProje.DataAccessLayer.Repositories
             {
                 var giriscikis = c.InOutTimes.Where(x => x.UserId == userId).ToList();
                 return giriscikis;
+            }
+        }
+
+        public void TAddExitTime(int id)
+        {
+            using (var c = new AppDbContext())
+            {
+
+                var inout = c.InOutTimes.Where(x => x.UserId == id).FirstOrDefault();
+                var ids = inout.Id;
+                if (inout != null)
+                {
+                    InOutTime times = new InOutTime
+                    {
+                        Id = ids,
+                        InTime = inout.InTime,
+                        OutTime = DateTime.UtcNow,
+                        UserId = id
+                        
+                    };
+                    c.InOutTimes.Update(times);
+                    c.SaveChanges();
+                }
+
             }
         }
     }
