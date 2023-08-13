@@ -3,7 +3,43 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33627.172
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TurnikeProje.EntityLayer", "EntityLayer\TurnikeProje.EntityLayer\TurnikeProje.EntityLayer.csproj", "{619F2B86-1EB4-433E-B33F-D27EACCCD640}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TurnikeProje.DataAccessLayer", "DataAccessLayer\TurnikeProje.DataAccessLayer\TurnikeProje.DataAccessLayer.csproj", "{B0A26406-D4E7-4F77-BDCC-0B6BF083F3D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TurnikeProje.BussinesLayer", "BussinesLayer\TurnikeProje.BussinesLayer\TurnikeProje.BussinesLayer.csproj", "{092D7650-6DDA-43B4-8471-ED6C2DAB4976}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TurnikeProje.Api", "Api\TurnikeProje.Api\TurnikeProje.Api.csproj", "{D8E257C3-A8BE-4E37-8DA7-637253038262}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TurnikeProje.UI", "UI\TurnikeProje.UI\TurnikeProje.UI.csproj", "{B41A5E5C-8210-45A4-B88E-FE92B0041A94}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{619F2B86-1EB4-433E-B33F-D27EACCCD640}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{619F2B86-1EB4-433E-B33F-D27EACCCD640}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{619F2B86-1EB4-433E-B33F-D27EACCCD640}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{619F2B86-1EB4-433E-B33F-D27EACCCD640}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0A26406-D4E7-4F77-BDCC-0B6BF083F3D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0A26406-D4E7-4F77-BDCC-0B6BF083F3D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0A26406-D4E7-4F77-BDCC-0B6BF083F3D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0A26406-D4E7-4F77-BDCC-0B6BF083F3D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{092D7650-6DDA-43B4-8471-ED6C2DAB4976}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{092D7650-6DDA-43B4-8471-ED6C2DAB4976}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{092D7650-6DDA-43B4-8471-ED6C2DAB4976}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{092D7650-6DDA-43B4-8471-ED6C2DAB4976}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8E257C3-A8BE-4E37-8DA7-637253038262}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8E257C3-A8BE-4E37-8DA7-637253038262}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8E257C3-A8BE-4E37-8DA7-637253038262}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8E257C3-A8BE-4E37-8DA7-637253038262}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B41A5E5C-8210-45A4-B88E-FE92B0041A94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B41A5E5C-8210-45A4-B88E-FE92B0041A94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B41A5E5C-8210-45A4-B88E-FE92B0041A94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B41A5E5C-8210-45A4-B88E-FE92B0041A94}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
