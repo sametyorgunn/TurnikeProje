@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\DataAccessLayer\TurnikeProje.DataAccessLayer\TurnikeProje.DataAccessLayer.csproj" />
+    <ProjectReference Include="..\..\EntityLayer\TurnikeProje.EntityLayer\TurnikeProje.EntityLayer.csproj" />
+  </ItemGroup>
+
 </Project>

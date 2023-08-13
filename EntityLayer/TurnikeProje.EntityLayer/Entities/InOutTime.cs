@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace TurnikeProje.EntityLayer.Entities
 {
-    public class GirisCikisSaat
+    public class InOutTime
     {
         public int Id { get; set; }
         public DateTime GirisSaati { get; set; }
         public DateTime CikisSaati { get; set; }
         public int KullaniciId { get; set; }
-        public Kullanici Kullanici { get; set; }
+        public User Kullanici { get; set; }
     }
 }
