@@ -9,10 +9,10 @@ namespace TurnikeProje.EntityLayer.Entities
     public class User
     {
         public int Id { get; set; }
-        public string isim { get; set; }
-        public string Soyisim { get; set; }
-        public string KullaniciAdi { get; set; }
-        public string Sifre { get; set; }
-        public List<InOutTime> girisCikis { get; set; }
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        public string UserName { get; set; }
+        public string Password { get; set; }
+        //public List<InOutTime>? InOuts { get; set; }
     }
 }

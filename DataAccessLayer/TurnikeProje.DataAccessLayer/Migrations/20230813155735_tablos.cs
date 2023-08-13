@@ -7,7 +7,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace TurnikeProje.DataAccessLayer.Migrations
 {
     /// <inheritdoc />
-    public partial class tablo : Migration
+    public partial class tablos : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -18,10 +18,10 @@ namespace TurnikeProje.DataAccessLayer.Migrations
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    isim = table.Column<string>(type: "text", nullable: false),
-                    Soyisim = table.Column<string>(type: "text", nullable: false),
-                    KullaniciAdi = table.Column<string>(type: "text", nullable: false),
-                    Sifre = table.Column<string>(type: "text", nullable: false)
+                    Name = table.Column<string>(type: "text", nullable: false),
+                    Surname = table.Column<string>(type: "text", nullable: false),
+                    UserName = table.Column<string>(type: "text", nullable: false),
+                    Password = table.Column<string>(type: "text", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -34,25 +34,24 @@ namespace TurnikeProje.DataAccessLayer.Migrations
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    GirisSaati = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    CikisSaati = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    KullaniciId = table.Column<int>(type: "integer", nullable: false)
+                    InTime = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
+                    OutTime = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
+                    UserId = table.Column<int>(type: "integer", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_InOutTimes", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_InOutTimes_Users_KullaniciId",
-                        column: x => x.KullaniciId,
+                        name: "FK_InOutTimes_Users_UserId",
+                        column: x => x.UserId,
                         principalTable: "Users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_InOutTimes_KullaniciId",
+                name: "IX_InOutTimes_UserId",
                 table: "InOutTimes",
-                column: "KullaniciId");
+                column: "UserId");
         }
 
         /// <inheritdoc />

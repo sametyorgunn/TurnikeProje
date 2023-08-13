@@ -12,8 +12,8 @@ using TurnikeProje.DataAccessLayer.Contexts;
 namespace TurnikeProje.DataAccessLayer.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230813133047_tablo")]
-    partial class tablo
+    [Migration("20230813155735_tablos")]
+    partial class tablos
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -33,18 +33,18 @@ namespace TurnikeProje.DataAccessLayer.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime>("CikisSaati")
+                    b.Property<DateTime?>("InTime")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<DateTime>("GirisSaati")
+                    b.Property<DateTime?>("OutTime")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<int>("KullaniciId")
+                    b.Property<int?>("UserId")
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("KullaniciId");
+                    b.HasIndex("UserId");
 
                     b.ToTable("InOutTimes");
                 });
@@ -57,19 +57,19 @@ namespace TurnikeProje.DataAccessLayer.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("KullaniciAdi")
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("Sifre")
+                    b.Property<string>("Password")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("Soyisim")
+                    b.Property<string>("Surname")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("isim")
+                    b.Property<string>("UserName")
                         .IsRequired()
                         .HasColumnType("text");
 
@@ -80,18 +80,11 @@ namespace TurnikeProje.DataAccessLayer.Migrations
 
             modelBuilder.Entity("TurnikeProje.EntityLayer.Entities.InOutTime", b =>
                 {
-                    b.HasOne("TurnikeProje.EntityLayer.Entities.User", "Kullanici")
-                        .WithMany("girisCikis")
-                        .HasForeignKey("KullaniciId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasOne("TurnikeProje.EntityLayer.Entities.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
 
-                    b.Navigation("Kullanici");
-                });
-
-            modelBuilder.Entity("TurnikeProje.EntityLayer.Entities.User", b =>
-                {
-                    b.Navigation("girisCikis");
+                    b.Navigation("User");
                 });
 #pragma warning restore 612, 618
         }

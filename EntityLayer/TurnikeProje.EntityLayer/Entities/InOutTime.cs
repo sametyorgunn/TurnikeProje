@@ -9,9 +9,9 @@ namespace TurnikeProje.EntityLayer.Entities
     public class InOutTime
     {
         public int Id { get; set; }
-        public DateTime GirisSaati { get; set; }
-        public DateTime CikisSaati { get; set; }
-        public int KullaniciId { get; set; }
-        public User Kullanici { get; set; }
+        public DateTime? InTime { get; set; }
+        public DateTime? OutTime { get; set; }
+        public int? UserId { get; set; }
+        public User? User { get; set; }
     }
 }

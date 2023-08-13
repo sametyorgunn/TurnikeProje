@@ -6,4 +6,17 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Models\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.16" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\BussinesLayer\TurnikeProje.BussinesLayer\TurnikeProje.BussinesLayer.csproj" />
+    <ProjectReference Include="..\..\EntityLayer\TurnikeProje.EntityLayer\TurnikeProje.EntityLayer.csproj" />
+  </ItemGroup>
+
 </Project>
