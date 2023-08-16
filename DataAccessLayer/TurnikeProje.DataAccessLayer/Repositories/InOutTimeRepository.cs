@@ -50,21 +50,29 @@ namespace TurnikeProje.DataAccessLayer.Repositories
         {
             using (var c = new AppDbContext())
             {
-
-                var inout = c.InOutTimes.Where(x => x.UserId == id).FirstOrDefault();
+                var inout = c.InOutTimes.Where(x => x.UserId == id).OrderByDescending(x => x.Id).FirstOrDefault();
                 var ids = inout.Id;
+
                 if (inout != null)
                 {
-                    InOutTime times = new InOutTime
+                    if (inout.OutTime == null)
                     {
-                        Id = ids,
-                        InTime = inout.InTime,
-                        OutTime = DateTime.UtcNow,
-                        UserId = id
-                        
-                    };
-                    c.InOutTimes.Update(times);
-                    c.SaveChanges();
+                        InOutTime times = new InOutTime
+                        {
+                            Id = ids,
+                            InTime = inout.InTime,
+                            OutTime = DateTime.UtcNow,
+                            UserId = id
+
+                        };
+                        c.InOutTimes.Update(times);
+                        c.SaveChanges();
+                    }
+                    else
+                    {
+                        var a = "d";
+                    }
+                   
                 }
 
             }

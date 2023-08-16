@@ -12,8 +12,8 @@ using TurnikeProje.DataAccessLayer.Contexts;
 namespace TurnikeProje.DataAccessLayer.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230813191150_nullable")]
-    partial class nullable
+    [Migration("20230816204212_dd")]
+    partial class dd
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

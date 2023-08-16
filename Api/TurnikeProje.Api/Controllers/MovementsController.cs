@@ -29,5 +29,11 @@ namespace TurnikeProje.Api.Controllers
             _inOutTimeService.TAddExitTime(id);
             return Ok();
         }
+        [HttpGet("{id}")]
+        public IActionResult Movements(int id)
+        {
+            var move = _inOutTimeService.TGetById(id);
+            return Ok(move);
+        }
     }
 }

@@ -16,7 +16,7 @@ namespace TurnikeProje.DataAccessLayer.Contexts
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseNpgsql("User ID=postgres;Password=yorgun.1292;Host=localhost;Port=5432;Database=TurnikeDb;");
+            optionsBuilder.UseNpgsql("User ID=postgres;Password=yorgun.1292;Host=localhost;Port=5432;Database=Turnike;");
         }
 
         public DbSet<User>Users { get; set; }
