@@ -7,7 +7,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace TurnikeProje.DataAccessLayer.Migrations
 {
     /// <inheritdoc />
-    public partial class dd : Migration
+    public partial class mig1 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -18,10 +18,7 @@ namespace TurnikeProje.DataAccessLayer.Migrations
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Name = table.Column<string>(type: "text", nullable: false),
-                    Surname = table.Column<string>(type: "text", nullable: false),
-                    UserName = table.Column<string>(type: "text", nullable: false),
-                    Password = table.Column<string>(type: "text", nullable: false)
+                    Name = table.Column<string>(type: "text", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -29,7 +26,7 @@ namespace TurnikeProje.DataAccessLayer.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "InOutTimes",
+                name: "Movements",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
@@ -40,9 +37,9 @@ namespace TurnikeProje.DataAccessLayer.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_InOutTimes", x => x.Id);
+                    table.PrimaryKey("PK_Movements", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_InOutTimes_Users_UserId",
+                        name: "FK_Movements_Users_UserId",
                         column: x => x.UserId,
                         principalTable: "Users",
                         principalColumn: "Id",
@@ -50,8 +47,8 @@ namespace TurnikeProje.DataAccessLayer.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_InOutTimes_UserId",
-                table: "InOutTimes",
+                name: "IX_Movements_UserId",
+                table: "Movements",
                 column: "UserId");
         }
 
@@ -59,7 +56,7 @@ namespace TurnikeProje.DataAccessLayer.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "InOutTimes");
+                name: "Movements");
 
             migrationBuilder.DropTable(
                 name: "Users");

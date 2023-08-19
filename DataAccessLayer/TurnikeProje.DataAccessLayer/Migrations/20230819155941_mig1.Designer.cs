@@ -12,8 +12,8 @@ using TurnikeProje.DataAccessLayer.Contexts;
 namespace TurnikeProje.DataAccessLayer.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230816204212_dd")]
-    partial class dd
+    [Migration("20230819155941_mig1")]
+    partial class mig1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,7 +25,7 @@ namespace TurnikeProje.DataAccessLayer.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("TurnikeProje.EntityLayer.Entities.InOutTime", b =>
+            modelBuilder.Entity("TurnikeProje.EntityLayer.Entities.Movement", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -46,7 +46,7 @@ namespace TurnikeProje.DataAccessLayer.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("InOutTimes");
+                    b.ToTable("Movements");
                 });
 
             modelBuilder.Entity("TurnikeProje.EntityLayer.Entities.User", b =>
@@ -61,24 +61,12 @@ namespace TurnikeProje.DataAccessLayer.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("Surname")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("UserName")
-                        .IsRequired()
-                        .HasColumnType("text");
-
                     b.HasKey("Id");
 
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("TurnikeProje.EntityLayer.Entities.InOutTime", b =>
+            modelBuilder.Entity("TurnikeProje.EntityLayer.Entities.Movement", b =>
                 {
                     b.HasOne("TurnikeProje.EntityLayer.Entities.User", "User")
                         .WithMany()

@@ -8,8 +8,9 @@ namespace TurnikeProje.EntityLayer.Dtos
 {
     public class CreateMovementsDto
     {
-        public string UserName { get; set; }
-        public string Password { get; set; }
-     
+        public DateTime? InTime { get; set; }
+        public DateTime? OutTime { get; set; }
+        public int UserId { get; set; }
+
     }
 }

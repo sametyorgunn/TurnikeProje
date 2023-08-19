@@ -22,7 +22,7 @@ namespace TurnikeProje.DataAccessLayer.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("TurnikeProje.EntityLayer.Entities.InOutTime", b =>
+            modelBuilder.Entity("TurnikeProje.EntityLayer.Entities.Movement", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -43,7 +43,7 @@ namespace TurnikeProje.DataAccessLayer.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("InOutTimes");
+                    b.ToTable("Movements");
                 });
 
             modelBuilder.Entity("TurnikeProje.EntityLayer.Entities.User", b =>
@@ -58,24 +58,12 @@ namespace TurnikeProje.DataAccessLayer.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("Surname")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("UserName")
-                        .IsRequired()
-                        .HasColumnType("text");
-
                     b.HasKey("Id");
 
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("TurnikeProje.EntityLayer.Entities.InOutTime", b =>
+            modelBuilder.Entity("TurnikeProje.EntityLayer.Entities.Movement", b =>
                 {
                     b.HasOne("TurnikeProje.EntityLayer.Entities.User", "User")
                         .WithMany()

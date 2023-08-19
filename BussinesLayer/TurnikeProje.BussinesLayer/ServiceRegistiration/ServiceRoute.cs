@@ -15,11 +15,8 @@ namespace TurnikeProje.BussinesLayer.ServiceRegistiration
     {
         public static void AddRegisterRoutes(this IServiceCollection services)
         {
-            services.AddScoped<IUserService, UserManager>();
-            services.AddScoped<IInOutTimeService, InOutTimeManager>();
-
-            services.AddScoped<IInOutTimeDal, InOutTimeRepository>();
-            services.AddScoped<IUserDal, EfUserRepository>();
+            services.AddScoped<MovementsService, MovementsManager>();
+            services.AddScoped<MovementsDal, MovementsRepository>();
 
         }
     }

@@ -10,30 +10,36 @@ namespace TurnikeProje.Api.Controllers
     [ApiController]
     public class MovementsController : ControllerBase
     {
-        private readonly IInOutTimeService _inOutTimeService;
+        private readonly MovementsService _movementsService;
 
-        public MovementsController(IInOutTimeService inOutTimeService)
+        public MovementsController(MovementsService movementsService)
         {
-            _inOutTimeService = inOutTimeService;
+            _movementsService = movementsService;
         }
 
-        [HttpPost]
+        [HttpPost("Enter")]
         public IActionResult Enter(CreateMovementsDto dto)
         {
-            _inOutTimeService.TCreateMovements(dto);
+            _movementsService.TCreateMovements(dto);
             return Ok(dto);
         }
-        [HttpGet("Exitadd/{id}")]
-        public IActionResult Exit(int id)
+        [HttpGet("Exit/{userId}")]
+        public IActionResult Exit(int userId)
         {
-            _inOutTimeService.TAddExitTime(id);
+            _movementsService.TCreateExitTime(userId);
             return Ok();
         }
-        [HttpGet("{id}")]
-        public IActionResult Movements(int id)
+        [HttpGet("GetAMovement/{movementId}")]
+        public IActionResult Movements(int movementId)
         {
-            var move = _inOutTimeService.TGetById(id);
+            var move = _movementsService.TGetById(movementId);
             return Ok(move);
+        }
+        [HttpGet("MovementsAll")]
+        public IActionResult Movements()
+        {
+            var movements = _movementsService.TGetListAll();
+            return Ok(movements);
         }
     }
 }

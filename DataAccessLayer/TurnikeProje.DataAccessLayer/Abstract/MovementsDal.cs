@@ -9,11 +9,11 @@ using TurnikeProje.EntityLayer.Entities;
 
 namespace TurnikeProje.DataAccessLayer.Abstract
 {
-    public interface IInOutTimeDal:IGenericDal<InOutTime>
+    public interface MovementsDal:IGenericDal<Movement>
     {
-        List<InOutTime> GetUserInOutTime(int userId);
+        List<Movement> GetUserMovementsTime(int userId);
         void CreateMovements(CreateMovementsDto dto);
-        void TAddExitTime(int id);
+        void CreateExitTime(int id);
 
 
     }

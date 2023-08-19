@@ -9,9 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TurnikeProje.DataAccessLaye
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TurnikeProje.Api", "Api\TurnikeProje.Api\TurnikeProje.Api.csproj", "{D8E257C3-A8BE-4E37-8DA7-637253038262}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TurnikeProje.UI", "UI\TurnikeProje.UI\TurnikeProje.UI.csproj", "{B41A5E5C-8210-45A4-B88E-FE92B0041A94}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TurnikeProje.BussinesLayer", "BussinesLayer\TurnikeProje.BussinesLayer\TurnikeProje.BussinesLayer.csproj", "{45C67F2C-3C0E-437D-B6AC-0A7990A84E29}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TurnikeProje.BussinesLayer", "BussinesLayer\TurnikeProje.BussinesLayer\TurnikeProje.BussinesLayer.csproj", "{45C67F2C-3C0E-437D-B6AC-0A7990A84E29}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,10 +29,6 @@ Global
 		{D8E257C3-A8BE-4E37-8DA7-637253038262}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D8E257C3-A8BE-4E37-8DA7-637253038262}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D8E257C3-A8BE-4E37-8DA7-637253038262}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B41A5E5C-8210-45A4-B88E-FE92B0041A94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B41A5E5C-8210-45A4-B88E-FE92B0041A94}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B41A5E5C-8210-45A4-B88E-FE92B0041A94}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B41A5E5C-8210-45A4-B88E-FE92B0041A94}.Release|Any CPU.Build.0 = Release|Any CPU
 		{45C67F2C-3C0E-437D-B6AC-0A7990A84E29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{45C67F2C-3C0E-437D-B6AC-0A7990A84E29}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{45C67F2C-3C0E-437D-B6AC-0A7990A84E29}.Release|Any CPU.ActiveCfg = Release|Any CPU

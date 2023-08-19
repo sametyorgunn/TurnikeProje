@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TurnikeProje.EntityLayer.Entities
 {
-    public class InOutTime
+    public class Movement
     {
         public int Id { get; set; }
         public DateTime? InTime { get; set; }
