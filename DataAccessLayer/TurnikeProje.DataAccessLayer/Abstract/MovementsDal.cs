@@ -14,6 +14,8 @@ namespace TurnikeProje.DataAccessLayer.Abstract
         List<Movement> GetUserMovementsTime(int userId);
         void CreateMovements(CreateMovementsDto dto);
         void CreateExitTime(int id);
+        GetUserOneDayMovementsDto TGetUserOneDayMovements(int userId);
+
 
 
     }

@@ -41,5 +41,11 @@ namespace TurnikeProje.Api.Controllers
             var movements = _movementsService.TGetListAll();
             return Ok(movements);
         }
+        [HttpGet("GetUserOneDayMovements/{userId}")]
+        public IActionResult GetUserOneDayMovements(int userId)
+        {
+            var movements = _movementsService.TGetUserOneDayMovements(userId);
+            return Ok(movements);
+        }
     }
 }

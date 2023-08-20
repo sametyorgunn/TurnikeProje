@@ -55,6 +55,11 @@ namespace TurnikeProje.BussinesLayer.Concrete
           return _movementsDal.GetUserMovementsTime(userId);
         }
 
+        public GetUserOneDayMovementsDto TGetUserOneDayMovements(int userId)
+        {
+           return _movementsDal.TGetUserOneDayMovements(userId);
+        }
+
         public void TInsert(Movement entity)
         {
             _movementsDal.Insert(entity);

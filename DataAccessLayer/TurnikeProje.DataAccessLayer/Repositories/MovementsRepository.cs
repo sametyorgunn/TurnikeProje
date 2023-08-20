@@ -70,5 +70,26 @@ namespace TurnikeProje.DataAccessLayer.Repositories
                 return movements;
             }
         }
+
+        public GetUserOneDayMovementsDto TGetUserOneDayMovements(int userId)
+        {
+            using(var c = new AppDbContext())
+            {
+                var usergiris = c.Movements.Where(x => x.UserId == userId).FirstOrDefault();
+                var usercikis = c.Movements.Where(x=>x.UserId==userId).OrderByDescending(x=>x.Id).FirstOrDefault();
+                var giris = usergiris.InTime;
+                var cikis = usercikis.OutTime;
+
+                TimeSpan? time = cikis - giris;
+                GetUserOneDayMovementsDto a = new()
+                {
+                    InTime = giris,
+                    OutTime = cikis,
+                    UserId = userId,
+                    OutInDifference = time
+                };
+                return a;
+            }
+        }
     }
 }

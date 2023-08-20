@@ -14,6 +14,7 @@ namespace TurnikeProje.BussinesLayer.Abstract
         List<Movement> TGetUserMovementsTime(int userId);
         void TCreateMovements(CreateMovementsDto dto);
         void TCreateExitTime(int id);
+        GetUserOneDayMovementsDto TGetUserOneDayMovements(int userId);
 
     }
 }
