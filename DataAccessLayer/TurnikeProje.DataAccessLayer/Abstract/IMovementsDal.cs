@@ -9,7 +9,7 @@ using TurnikeProje.EntityLayer.Entities;
 
 namespace TurnikeProje.DataAccessLayer.Abstract
 {
-    public interface MovementsDal:IGenericDal<Movement>
+    public interface IMovementsDal:IGenericDal<Movement>
     {
         List<Movement> GetUserMovementsTime(int userId);
         void CreateMovements(CreateMovementsDto dto);

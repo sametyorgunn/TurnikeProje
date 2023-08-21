@@ -14,7 +14,7 @@ using TurnikeProje.EntityLayer.Entities;
 
 namespace TurnikeProje.DataAccessLayer.Repositories
 {
-    public class MovementsRepository : EfGenericRepository<Movement>, MovementsDal
+    public class MovementsRepository : EfGenericRepository<Movement>, IMovementsDal
     {
         public void CreateExitTime(int id)
         {

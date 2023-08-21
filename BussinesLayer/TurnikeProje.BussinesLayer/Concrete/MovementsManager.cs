@@ -11,11 +11,11 @@ using TurnikeProje.EntityLayer.Entities;
 
 namespace TurnikeProje.BussinesLayer.Concrete
 {
-    public class MovementsManager : MovementsService
+    public class MovementsManager : IMovementsService
     {
-        private readonly MovementsDal _movementsDal;
+        private readonly IMovementsDal _movementsDal;
 
-        public MovementsManager(MovementsDal movementsDal)
+        public MovementsManager(IMovementsDal movementsDal)
         {
             _movementsDal = movementsDal;
         }

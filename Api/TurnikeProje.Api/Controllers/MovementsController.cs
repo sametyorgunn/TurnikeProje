@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using TurnikeProje.BussinesLayer.Abstract;
 using TurnikeProje.EntityLayer.Dtos;
@@ -10,20 +11,21 @@ namespace TurnikeProje.Api.Controllers
     [ApiController]
     public class MovementsController : ControllerBase
     {
-        private readonly MovementsService _movementsService;
+        private readonly IMovementsService _movementsService;
 
-        public MovementsController(MovementsService movementsService)
+        public MovementsController(IMovementsService movementsService)
         {
             _movementsService = movementsService;
         }
 
+        [Authorize]
         [HttpPost("Enter")]
         public IActionResult Enter(CreateMovementsDto dto)
         {
             _movementsService.TCreateMovements(dto);
             return Ok(dto);
         }
-        [HttpGet("Exit/{userId}")]
+        [HttpPost("Exit/{userId}")]
         public IActionResult Exit(int userId)
         {
             _movementsService.TCreateExitTime(userId);

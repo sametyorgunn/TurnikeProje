@@ -9,7 +9,7 @@ using TurnikeProje.EntityLayer.Entities;
 
 namespace TurnikeProje.BussinesLayer.Abstract
 {
-    public interface MovementsService:IGenericService<Movement>
+    public interface IMovementsService:IGenericService<Movement>
     {
         List<Movement> TGetUserMovementsTime(int userId);
         void TCreateMovements(CreateMovementsDto dto);
