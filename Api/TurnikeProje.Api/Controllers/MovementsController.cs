@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using TurnikeProje.Api.RabbitMq;
 using TurnikeProje.BussinesLayer.Abstract;
 using TurnikeProje.EntityLayer.Dtos;
 using TurnikeProje.EntityLayer.Entities;
@@ -17,11 +18,11 @@ namespace TurnikeProje.Api.Controllers
         {
             _movementsService = movementsService;
         }
-
-        [Authorize]
         [HttpPost("Enter")]
-        public IActionResult Enter(CreateMovementsDto dto)
+        public IActionResult Enter([FromBody]CreateMovementsDto dto)
         {
+            Publisher publisher = new Publisher();
+            publisher.Publish("deneme");
             _movementsService.TCreateMovements(dto);
             return Ok(dto);
         }
@@ -47,6 +48,12 @@ namespace TurnikeProje.Api.Controllers
         public IActionResult GetUserOneDayMovements(int userId)
         {
             var movements = _movementsService.TGetUserOneDayMovements(userId);
+            return Ok(movements);
+        }
+        [HttpGet("GetUserMovementsFilter")]
+        public IActionResult GetUserMovementsFilter(int userId,DateTime EnterDate,DateTime ExitTime)
+        {
+            var movements = _movementsService.TGetUserMovementsFilter(userId, EnterDate, ExitTime); 
             return Ok(movements);
         }
     }

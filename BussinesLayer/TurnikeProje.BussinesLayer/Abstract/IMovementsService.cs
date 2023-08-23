@@ -15,6 +15,7 @@ namespace TurnikeProje.BussinesLayer.Abstract
         void TCreateMovements(CreateMovementsDto dto);
         void TCreateExitTime(int id);
         GetUserOneDayMovementsDto TGetUserOneDayMovements(int userId);
+        List<Movement> TGetUserMovementsFilter(int userId,DateTime EnterDate,DateTime ExitDate);
 
     }
 }

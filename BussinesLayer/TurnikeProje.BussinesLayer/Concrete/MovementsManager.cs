@@ -50,6 +50,11 @@ namespace TurnikeProje.BussinesLayer.Concrete
             return _movementsDal.GetListAll(filter);
         }
 
+        public List<Movement> TGetUserMovementsFilter(int userId, DateTime EnterDate, DateTime ExitDate)
+        {
+            return _movementsDal.GetUserMovementsFilter(userId, EnterDate, ExitDate);
+        }
+
         public List<Movement> TGetUserMovementsTime(int userId)
         {
           return _movementsDal.GetUserMovementsTime(userId);

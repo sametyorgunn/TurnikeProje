@@ -35,7 +35,7 @@ namespace TurnikeProje.DataAccessLayer.Repositories
                 {
                     var movement = c.Movements.Where(x => x.UserId == id).FirstOrDefault();
 
-                    movement.OutTime = Convert.ToDateTime(DateTime.Now);
+                    movement.OutTime = DateTime.UtcNow;
                     movement.UserId = id;
                     movement.InTime = movement.InTime;
 
@@ -59,6 +59,35 @@ namespace TurnikeProje.DataAccessLayer.Repositories
                 };
                 c.Movements.Add(mov);
                 c.SaveChanges();
+            }
+        }
+
+        public List<Movement> GetUserMovementsFilter(int userId, DateTime EnterDate, DateTime ExitDate)
+        {
+           using(AppDbContext c = new AppDbContext())
+            {
+                //ExitDate = ExitDate == Convert.ToDateTime("1.01.0001 00:00:00") ? Convert.ToDateTime("2029 - 08 - 23 23:21:25.961 + 0300") : ExitDate;
+                if (userId == null)
+                {
+                    var allmovementsFilterDate = c.Movements.Where(x => x.InTime > EnterDate && x.OutTime < ExitDate).ToList();
+                    return allmovementsFilterDate;
+                }
+                else if (EnterDate == Convert.ToDateTime("1.01.0001 00:00:00"))
+                {
+                    var movementsOutOfEnterdate = c.Movements.Where(x => x.UserId == userId && x.OutTime < ExitDate).ToList();
+                    return movementsOutOfEnterdate;
+                }
+                else if (ExitDate == Convert.ToDateTime("1.01.0001 00:00:00"))
+                {
+                    var movementsOutOfExitdate = c.Movements.Where(x => x.UserId == userId && x.InTime > EnterDate).ToList();
+                    return movementsOutOfExitdate;
+                }
+                else
+                {
+                    var movements = c.Movements.Where(x => x.UserId == userId && x.InTime > EnterDate && x.OutTime < ExitDate).ToList();
+                    return movements;
+                }
+                
             }
         }
 

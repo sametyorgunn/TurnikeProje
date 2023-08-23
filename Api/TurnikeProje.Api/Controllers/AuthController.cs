@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using TurnikeProje.Api.Jwt;
 
@@ -13,5 +14,6 @@ namespace TurnikeProje.Api.Controllers
         {
             return Created("", new BuildToken().CreateToken());
         }
+       
     }
 }
